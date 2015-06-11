@@ -108,7 +108,7 @@ def node_name
   cmd = get_shellout(cmd)
   cmd.run_command
   cmd.error!
-  result = cmd.stdout.chomp
+  result = cmd.stdout.chomp.gsub("'", '')
   Chef::Log.debug("[rabbitmq_cluster] node name : #{result}")
   result
 end
