@@ -225,6 +225,8 @@ action :change_cluster_node_type do
   Chef::Application.fatal!('rabbitmq_cluster with action :join requires a non-nil/empty cluster_nodes.') if new_resource.cluster_nodes.nil? || new_resource.cluster_nodes.empty?
 
   var_cluster_status = cluster_status
+puts "var_cluster_status=#{var_cluster_status.inspect}"
+  
   var_node_name = node_name
   puts "var_node_name=#{node_name.inspect}"
   var_current_cluster_node_type = current_cluster_node_type(var_node_name, var_cluster_status)
